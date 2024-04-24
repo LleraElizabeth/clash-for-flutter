@@ -30,7 +30,9 @@ jobs:
           key: image-cache-xgo-v1.19
       - if: steps.image-cache.outputs.cache-hit != 'true'
         run: |
+          df -h
           docker pull techknowlogick/xgo:go-1.19.x
+          df -h
           docker save -o ~/image-cache/xgo.tar techknowlogick/xgo:go-1.19.x
       - if: steps.image-cache.outputs.cache-hit == 'true'
         run: docker load -i ~/image-cache/xgo.tar
