@@ -30,7 +30,7 @@ jobs:
           key: image-cache-xgo-v1.19
       - if: steps.image-cache.outputs.cache-hit != 'true'
         run: |
-          du -h --max-depth=2
+          du / -h --max-depth=2
           df -h
           docker pull techknowlogick/xgo:go-1.19.x
           df -h
