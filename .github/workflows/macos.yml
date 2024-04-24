@@ -31,7 +31,6 @@ jobs:
       - if: steps.image-cache.outputs.cache-hit != 'true'
         run: |
           rm -rf /opt/hostedtoolcache
-          du / -h --max-depth=3
           df -h
           docker pull techknowlogick/xgo:go-1.19.x
           df -h
